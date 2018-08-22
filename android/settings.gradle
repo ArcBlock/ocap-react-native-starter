@@ -1,0 +1,3 @@
+rootProject.name = 'OCAPReactNativeStarter'
+
+include ':app'
