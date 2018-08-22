@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@arcblock/ocap-js": "^0.3.9",
+    "@arcblock/ocap-js": "latest",
     "babel-polyfill": "^6.26.0",
     "react": "16.4.1",
     "react-native": "0.56.0",
