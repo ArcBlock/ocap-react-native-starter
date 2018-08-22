@@ -24,8 +24,8 @@ This project is bootstrapped using `react-native-cli` with instructions from [he
 
 ## Other Libraries Included
 
-- [react-navigation]()
-- [react-native-vector-icons]()
+- [react-navigation](https://reactnavigation.org/)
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 
 ## APP Screenshots
 
