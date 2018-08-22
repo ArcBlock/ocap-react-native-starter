@@ -11,6 +11,8 @@ export const dataSources = [
   },
 ];
 
+console.log(OCAPClient.name);
+
 // Create clients for BTC and ETH
 export const clients = dataSources.reduce((obj, ds) => {
   obj[ds.name] = new OCAPClient({

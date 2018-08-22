@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator } from 'react-native';
 
 import { dataSources, getClient } from '../../libs/ocap';
 
@@ -16,7 +16,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      dataSource: dataSources[0],
+      dataSource: dataSources[1],
       message: null,
       timestamp: null,
       subscribed: false,
@@ -24,24 +24,25 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ subscribed: true });
-
     const client = getClient(this.state.dataSource.name);
 
-    // Subscription
     const subscription = await client.newBlockMined();
-    subscription.on('data', data => {
-      this.setState({
-        message: data,
-        timestamp: new Date(),
+    subscription
+      .on('data', data => {
+        this.setState({
+          message: data,
+          timestamp: new Date(),
+        });
+
+        setTimeout(() => {
+          this.setState({ message: null });
+        }, 5000);
+      })
+      .on('error', err => {
+        this.setState({ message: err });
       });
 
-      setTimeout(() => {
-        this.setState({ message: null });
-      }, 5000);
-    });
-
-    this.setState({ subscribed: false });
+    this.setState({ subscribed: true });
   }
 
   render() {
@@ -49,25 +50,27 @@ export default class App extends Component {
 
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.header}>
-          Subscription Demo: {dataSource.name.toUpperCase()}.newBlockMined
-        </Text>
+        <Text style={styles.header}>Subscription Demo</Text>
 
         {subscribed || (
           <Text>
-            Try to subscribe to {dataSource.name.toUpperCase()}.newBlockMined
+            Try to subscribe to {dataSource.name.toUpperCase()}
+            .newBlockMined
           </Text>
         )}
+
         {subscribed && (
           <Text>
-            {dataSource.name.toUpperCase()}.newBlockMined subscription success
+            {dataSource.name.toUpperCase()}
+            .newBlockMined subscription success
           </Text>
         )}
 
         {subscribed &&
           !message && (
             <View>
-              <Text>waiting for data</Text>
+              <Text style={{ marginBottom: 15, marginTop: 15 }}>Waiting for data</Text>
+              <ActivityIndicator size="large" color="#0000ff" />
             </View>
           )}
 
@@ -76,7 +79,9 @@ export default class App extends Component {
             <Text>
               New {dataSource.name.toUpperCase()} blocked mined at {timestamp.toString()}:
             </Text>
-            <Text style={styles.code}>{JSON.stringify(message, true, '  ')}</Text>
+            <ScrollView>
+              <Text style={styles.code}>{JSON.stringify(message, true, '  ')}</Text>
+            </ScrollView>
           </View>
         )}
       </ScrollView>
