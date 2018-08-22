@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@arcblock/ocap-js@^0.3.8":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@arcblock/ocap-js/-/ocap-js-0.3.8.tgz#ffaa90cd52560b8bc814864f42dc0c9fec733026"
+"@arcblock/ocap-js@^0.3.9":
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@arcblock/ocap-js/-/ocap-js-0.3.9.tgz#8ccbd61c1aee0bbb6e0e7a105b40f0efed201ca9"
   dependencies:
-    "@arcblock/ocap-schema" "^0.3.3"
-    "@arcblock/sdk-util" "^0.3.5"
+    "@arcblock/ocap-schema" "^0.3.9"
+    "@arcblock/sdk-util" "^0.3.9"
     babel-polyfill "^6.26.0"
     blueimp-md5 "^2.10.0"
     graphql "^0.13.2"
@@ -15,13 +15,13 @@
     phoenix-channels "^1.0.0"
     wolfy87-eventemitter "^5.2.5"
 
-"@arcblock/ocap-schema@^0.3.3":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@arcblock/ocap-schema/-/ocap-schema-0.3.8.tgz#4e51ff226d6b7be4b3a2a50f48b3d4f6ceec0959"
+"@arcblock/ocap-schema@^0.3.9":
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@arcblock/ocap-schema/-/ocap-schema-0.3.9.tgz#6d04be3cf3feb35f3c3f90a3c039d0914e6f6387"
 
-"@arcblock/sdk-util@^0.3.5":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@arcblock/sdk-util/-/sdk-util-0.3.8.tgz#4709390db78347a5ef71efcf163d41feb53670c0"
+"@arcblock/sdk-util@^0.3.9":
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@arcblock/sdk-util/-/sdk-util-0.3.9.tgz#539e69b962683022bb054ee82ae066c18152b11e"
   dependencies:
     axios "^0.18.0"
     debug "^3.1.0"

@@ -25,7 +25,7 @@ export default class App extends Component {
   async componentDidMount() {
     this.setState({ loading: true });
 
-    const client = getClient(this.data.dataSource.name);
+    const client = getClient(this.state.dataSource.name);
 
     const summary = await client.accountByAddress({
       address: this.state.dataSource.demoAddress,

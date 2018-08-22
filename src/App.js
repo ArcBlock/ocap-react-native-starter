@@ -1,10 +1,13 @@
 import React from 'react';
+import { YellowBox } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Home from './pages/Home';
 import Query from './pages/Query';
 import Subscription from './pages/Subscription';
+
+YellowBox.ignoreWarnings(['Method `jumpToIndex`']);
 
 export default TabNavigator(
   {
@@ -18,11 +21,11 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = 'ios-home';
         } else if (routeName === 'Query') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+          iconName = 'ios-filing';
         } else if (routeName === 'Subscription') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+          iconName = 'ios-folder';
         }
 
         // You can return any component that you like here! We usually use an

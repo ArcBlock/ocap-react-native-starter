@@ -37,7 +37,7 @@ export default class App extends Component {
       });
     });
 
-    this.setState({ loading: false, summary });
+    this.setState({ loading: false });
   }
 
   render() {
