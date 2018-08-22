@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@arcblock/ocap-js@^0.3.9":
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/@arcblock/ocap-js/-/ocap-js-0.3.9.tgz#8ccbd61c1aee0bbb6e0e7a105b40f0efed201ca9"
+"@arcblock/ocap-js@latest":
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@arcblock/ocap-js/-/ocap-js-0.3.10.tgz#1f012e3e39d57cfea6df55c109645a2c78641ebb"
   dependencies:
     "@arcblock/ocap-schema" "^0.3.9"
-    "@arcblock/sdk-util" "^0.3.9"
+    "@arcblock/sdk-util" "^0.3.10"
     babel-polyfill "^6.26.0"
     blueimp-md5 "^2.10.0"
     graphql "^0.13.2"
@@ -19,9 +19,9 @@
   version "0.3.9"
   resolved "https://registry.yarnpkg.com/@arcblock/ocap-schema/-/ocap-schema-0.3.9.tgz#6d04be3cf3feb35f3c3f90a3c039d0914e6f6387"
 
-"@arcblock/sdk-util@^0.3.9":
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/@arcblock/sdk-util/-/sdk-util-0.3.9.tgz#539e69b962683022bb054ee82ae066c18152b11e"
+"@arcblock/sdk-util@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@arcblock/sdk-util/-/sdk-util-0.3.10.tgz#51fe1028fd35a64cd89405713c0c0765220b0b69"
   dependencies:
     axios "^0.18.0"
     debug "^3.1.0"
