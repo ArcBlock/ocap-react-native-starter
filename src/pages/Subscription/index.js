@@ -53,14 +53,14 @@ export default class App extends Component {
         <Text style={styles.header}>Subscription Demo</Text>
 
         {subscribed || (
-          <Text>
+          <Text style={{ marginBottom: 15 }}>
             Try to subscribe to {dataSource.name.toUpperCase()}
             .newBlockMined
           </Text>
         )}
 
         {subscribed && (
-          <Text>
+          <Text style={{ marginBottom: 15 }}>
             {dataSource.name.toUpperCase()}
             .newBlockMined subscription success
           </Text>
@@ -69,19 +69,17 @@ export default class App extends Component {
         {subscribed &&
           !message && (
             <View>
-              <Text style={{ marginBottom: 15, marginTop: 15 }}>Waiting for data</Text>
+              <Text style={{ marginBottom: 15 }}>Waiting for data</Text>
               <ActivityIndicator size="large" color="#0000ff" />
             </View>
           )}
 
         {message && (
-          <View>
-            <Text>
+          <View style={{flex: 1}}>
+            <Text style={{ marginBottom: 15 }}>
               New {dataSource.name.toUpperCase()} blocked mined at {timestamp.toString()}:
             </Text>
-            <ScrollView>
-              <Text style={styles.code}>{JSON.stringify(message, true, '  ')}</Text>
-            </ScrollView>
+            <Text style={styles.code}>{JSON.stringify(message, true, '  ')}</Text>
           </View>
         )}
       </ScrollView>
