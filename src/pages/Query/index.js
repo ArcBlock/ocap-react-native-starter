@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import { dataSources, getClient } from '../../libs/ocap';
 
@@ -38,7 +38,8 @@ export default class App extends Component {
     const { loading, summary, dataSource } = this.state;
 
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.header}>Query Demo</Text>
         {loading && (
           <Text>
             Loading account summary for {dataSource.name.toUpperCase()} account:{' '}
@@ -53,7 +54,7 @@ export default class App extends Component {
             <Text style={styles.code}>{JSON.stringify(summary, true, '  ')}</Text>
           </View>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -61,14 +62,20 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 10,
+    paddingTop: 30,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     backgroundColor: '#F5FCFF',
+  },
+  header: {
+    fontSize: 20,
+    marginBottom: 10,
   },
   code: {
     backgroundColor: '#EEEE',
     padding: 10,
-    margin: 10,
+    marginTop: 10,
     borderRadius: 5,
     borderWidth: 1,
     borderStyle: 'solid',

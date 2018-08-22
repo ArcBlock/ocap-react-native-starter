@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import { dataSources, getClient } from '../../libs/ocap';
 
@@ -19,12 +19,12 @@ export default class App extends Component {
       dataSource: dataSources[0],
       message: null,
       timestamp: null,
-      loading: false,
+      subscribed: false,
     };
   }
 
   async componentDidMount() {
-    this.setState({ loading: true });
+    this.setState({ subscribed: true });
 
     const client = getClient(this.state.dataSource.name);
 
@@ -35,31 +35,51 @@ export default class App extends Component {
         message: data,
         timestamp: new Date(),
       });
+
+      setTimeout(() => {
+        this.setState({ message: null });
+      }, 5000);
     });
 
-    this.setState({ loading: false });
+    this.setState({ subscribed: false });
   }
 
   render() {
-    const { loading, summary, dataSource } = this.state;
+    const { subscribed, message, timestamp, dataSource } = this.state;
 
     return (
-      <View style={styles.container}>
-        {loading && (
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.header}>
+          Subscription Demo: {dataSource.name.toUpperCase()}.newBlockMined
+        </Text>
+
+        {subscribed || (
           <Text>
-            Loading account summary for {dataSource.name.toUpperCase()} account:{' '}
-            {dataSource.demoAddress}
+            Try to subscribe to {dataSource.name.toUpperCase()}.newBlockMined
           </Text>
         )}
-        {loading || (
+        {subscribed && (
+          <Text>
+            {dataSource.name.toUpperCase()}.newBlockMined subscription success
+          </Text>
+        )}
+
+        {subscribed &&
+          !message && (
+            <View>
+              <Text>waiting for data</Text>
+            </View>
+          )}
+
+        {message && (
           <View>
             <Text>
-              Account summary for {dataSource.name.toUpperCase()} account: {dataSource.demoAddress}
+              New {dataSource.name.toUpperCase()} blocked mined at {timestamp.toString()}:
             </Text>
-            <Text style={styles.code}>{JSON.stringify(summary, true, '  ')}</Text>
+            <Text style={styles.code}>{JSON.stringify(message, true, '  ')}</Text>
           </View>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -67,14 +87,20 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 10,
+    paddingTop: 30,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     backgroundColor: '#F5FCFF',
+  },
+  header: {
+    fontSize: 20,
+    marginBottom: 10,
   },
   code: {
     backgroundColor: '#EEEE',
     padding: 10,
-    margin: 10,
+    marginTop: 10,
     borderRadius: 5,
     borderWidth: 1,
     borderStyle: 'solid',
