@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/powered%20by-arcblock-brightgreen.svg)
 
-> 集成了 [OCAP JS SDK](https://github.com/ArcBlock/ocap-javascript-sdk/tree/master/packages/ocap-js) 的 React-Native 种子项目，参照 React-Native 官方的[操作步骤](https://facebook.github.io/react-native/docs/getting-started.html)，使用 `react-native-cli` 初始化，APP 里面提供的界面可以看本文档末尾的截图。
+> 集成了 [OCAP JS SDK](https://github.com/ArcBlock/ocap-javascript-sdk/tree/master/packages/ocap-js) 的 React-Native 种子项目，使用 `react-native-cli` 初始化，APP 里面提供的界面可以看本文档末尾的截图。
 
 > For English documentation, please checkout [README.md](./README.md)
 
