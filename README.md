@@ -2,9 +2,9 @@
 
 ![](https://img.shields.io/badge/powered%20by-arcblock-brightgreen.svg)
 
-> OCAP Starter project for react-native with OCAP JS SDK integrated.
+> OCAP Starter project for react-native with OCAP JS SDK integrated. This project is bootstrapped using `react-native-cli` with instructions from [here](https://facebook.github.io/react-native/docs/getting-started.html), and with OCAP JS SDK integrated, see screenshot for more detail.
 
-This project is bootstrapped using `react-native-cli` with instructions from [here](https://facebook.github.io/react-native/docs/getting-started.html), and with OCAP JS SDK integrated, see screenshot for more detail.
+> 中文版文档请猛击 [README.cn.md](./README.cn.md)
 
 ## Getting Started
 
